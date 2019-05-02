@@ -4,13 +4,20 @@ with open ("Films.txt", "r") as list1:
     film_list = list1.read().split('\n')  
      
 def movie_search(some_list):
-    while True:
-        film = random.choice(some_list)
-        if '@' in film:
-            i = True
-        else:
-            return film
-            break
+    i = 0
+    for n in some_list:
+        if '@' in n:
+            i += 1
+    if i == len(some_list):
+        return "Вы видели все фильмы"
+    else:
+        while True:
+            film = random.choice(some_list)
+            if '@' in film:
+                i = True
+            else:
+                return film
+                break
            
 def change_list(some_film):
     index_element = film_list.index(some_film)
