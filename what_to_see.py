@@ -9,7 +9,7 @@ def movie_search(some_list):
         if '@' in n:
             i += 1
     if i == len(some_list):
-        return "Вы видели все фильмы"
+        return "Вы видели все фильмы!"
     else:
         while True:
             film = random.choice(some_list)
@@ -26,11 +26,14 @@ def change_list(some_film):
     return changed_film_list    
 
 a = movie_search(film_list)
-b = change_list(a)
-print('Выпал этот фильм: ', a)
-
-with open ("Films.txt", "w") as film:
-    film.write(b)       
+if a == "Вы видели все фильмы!":
+    print(a)
+else:
+    b = change_list(a)
+    print('Выпал этот фильм: ', a)
+    with open ("Films.txt", "w") as film:
+        film.write(b)  
+     
 
 
 
